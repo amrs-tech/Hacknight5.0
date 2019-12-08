@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+        <head>
+      	
+                <style>
+                ul {
+                  list-style-type: none;
+                  margin: 0;
+                  padding: 0;
+                  overflow: hidden;
+                  background-color: #333;
+                }
+                
+                li {
+                  float: left;
+                }
+                
+                li a {
+                  display: block;
+                  color: white;
+                  text-align: center;
+                  padding: 14px 16px;
+                  text-decoration: none;
+                }
+                
+                li a:hover:not(.active) {
+                  background-color: #111;
+                }
+                
+                .active {
+                  background-color: #4CAF50;
+                }
+                #ip {
+                border-radius: 15px;
+                padding: 20px; 
+                width: 200px;
+                height: 5px; 
+                border-color: blue;
+                    }
+                    #button {
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 15px;
+  padding: 10px;
+  width: 250px;
+  transition: all 0.5s;
+  cursor: pointer;
+  
+}
+                </style>
+                </head>
+    <body>
+            <ul>
+                    <li><a href="#dash">Dashboard</a></li>
+                    <li><a href="#analysis">Analysis</a></li>
+                    <li><a href="#prediction">Predictions</a></li>
+                    <li style="float:right"><a class="active" href="#">Logout</a></li>
+                  </ul><br><br>
+                  <input align="left" type="button" value="back" id="back">
+                  <div align="center">
+                      <h2>Adding New Entries</h2>
+                      <form action="{% url 'add_entry' %}" method="post">
+                        {% csrf_token %}
+                      <input type="text" name="purpose" id ="ip" placeholder="Purpose*" required><br><br>
+                      <input type="text" name="price" id ="ip" placeholder="Price*" required><br><br>
+                    <input type="date" name="date" id="ip" > <p>(Date of Expenditure By default:Current Date)</p>
+                    <input align="middle" type="submit" value="Add" name="add" id="button">
+                  </form>
+                  </div>
+                  <script type="text/javascript">
+                    document.getElementById("back").onclick = function () {
+                        location.href="home.html";
+                    };
+                    document.getElementById("button").onclick = function () {
+                        location.href="new_entry.html";
+                    };
+               </script>
+    </body>
+</html>
