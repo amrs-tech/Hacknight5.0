@@ -39,6 +39,8 @@ def add_entry(request):
 		b = BudgetEntryModel()
 		b.purpose = request.POST.get('purpose')
 		b.price = request.POST.get('price')
+		if request.POST.get('date'):
+			b.date_of_expenditure = request.POST.get('date')
 		b.save()
 
 	return render(request, 'predict.html')
